@@ -146,7 +146,7 @@ export function collapsible(text, cls = "bubble-text", { markdown = false } = {}
 }
 
 function avatar() {
-  return h("span", { class: "msg-avatar", "aria-hidden": "true", text: "助" });
+  return h("span", { class: "msg-avatar cat-avatar", "aria-hidden": "true" });
 }
 
 export function userMessage(data, { animate = true, scroll = true } = {}) {
@@ -212,12 +212,12 @@ export function assistantMessage(text, { scroll = true, animate = true, speak = 
   const row = h("div", { class: `msg msg-assistant${animate ? " enter" : ""}` }, [
     avatar(),
     h("div", { class: "bubble bubble-assistant" }, [
-      h("span", { class: "sr-only", text: "小助：" }),
+      h("span", { class: "sr-only", text: "小冻梨：" }),
       collapsible(text, "bubble-text", { markdown: true }),
       onFeedback ? feedbackBar(feedback, onFeedback) : null,
     ]),
   ]);
-  if (speak) announce(`小助：${text}`);
+  if (speak) announce(`小冻梨：${text}`);
   return append(row, { scroll });
 }
 
@@ -276,29 +276,27 @@ export function typing({ hint = "", slowHint = "" } = {}) {
   };
 }
 
-export function renderHero({ onChip, onMemory }) {
+export function renderHero({ onChip }) {
   if ($("hero")) return;
-  const chip = (iconName, label, onClick) =>
-    h("button", { type: "button", class: "hero-chip", onClick }, [icon(iconName), h("span", { text: label })]);
-  const hero = h("section", { class: "hero enter", id: "hero", "aria-labelledby": "heroTitle" }, [
-    h("div", { class: "hero-mark", "aria-hidden": "true", text: "助" }),
-    h("h2", { id: "heroTitle", text: "今天有什么我可以帮忙的？" }),
-    h("p", {
-      class: "hero-sub",
-      text: "我是小助。直接和我聊就行：告诉我你的事，我会记住；要写邮件、消息或文章，我先出草稿，你确认后才算定稿。",
-    }),
-    h("p", {
-      class: "hero-sub",
-      text: "也可以让我到点提醒你，或者按你的要求定时做点事。",
-    }),
-    h("div", { class: "hero-actions" }, [
-      chip("doc", "记住我下周三出差", () => onChip("记住我下周三出差")),
-      chip("edit", "帮我写一封请假邮件", () => onChip("帮我写一封请假邮件")),
-      chip("bell", "明早八点提醒我", () => onChip("明早八点提醒我")),
-      chip("sun", "最近有点累", () => onChip("最近有点累")),
-      onMemory ? chip("doc", "你记得我什么", onMemory) : null,
+  const chip = (iconName, label, prompt) =>
+    h("button", { type: "button", class: "hero-chip", onClick: () => onChip(prompt) }, [icon(iconName), h("span", { text: label })]);
+  const hero = h("section", { class: "hero", id: "hero", "aria-labelledby": "heroTitle" }, [
+    h("div", { class: "cat-hero", role: "img", "aria-label": "挥手的小冻梨，一只毛绒暹罗猫" }),
+    h("h2", { id: "heroTitle", text: "我在，今天想先做点什么？" }),
+    h("p", { class: "hero-sub", text: "记住重要的事，陪你把手头的事做好。" }),
+    h("div", { class: "welcome-example", "aria-label": "示例对话，不是你的聊天记录" }, [
+      h("span", { class: "example-caption", text: "示例对话" }),
+      h("div", { class: "example-user" }, [
+        h("button", { type: "button", class: "bubble bubble-user", text: "帮我整理一下今天的待办", onClick: () => onChip("帮我整理一下今天的待办") }),
+        h("span", { class: "example-person", "aria-hidden": "true", text: "我" }),
+      ]),
+      h("div", { class: "example-assistant" }, [avatar(), h("div", { class: "bubble bubble-assistant", text: "把要做的事告诉我吧，我帮你理清顺序。" })]),
+      h("div", { class: "hero-actions" }, [
+        chip("doc", "记住一件事", "帮我记住一件事："),
+        chip("edit", "写一份草稿", "帮我写一份草稿："),
+        chip("bell", "设个提醒", "提醒我："),
+      ]),
     ]),
-    h("p", { class: "hero-note", text: "草稿确认卡不过期，后点的决定会覆盖先点的 · 档案在右上角「档案」里随时可改" }),
   ]);
   $("log").appendChild(hero);
 }

@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#FCFCFC" />
+  <meta name="theme-color" content="#faf7f3" />
   <meta name="app-version" content="__APP_VERSION__" />
-  <title>Personal Agent</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23191919'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif'%3E%E5%8A%A9%3C/text%3E%3C/svg%3E" />
+  <title>小冻梨 · 你的个人 AI 搭子</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23542b0f'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif'%3E%E6%A2%A8%3C/text%3E%3C/svg%3E" />
   <link rel="preload" href="/static/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/static/design.css?v=__APP_VERSION__" />
   <link rel="stylesheet" href="/static/chat.css?v=__APP_VERSION__" />
+  <link rel="stylesheet" href="/static/brand.css?v=1" />
   <script type="module" src="/static/js/app.js?v=__APP_VERSION__"></script>
 </head>
 <body class="app chat-app">
@@ -18,22 +19,22 @@
 
   <header class="app-header chat-header">
     <div class="brand">
-      <span class="brand-mark" aria-hidden="true">助</span>
-      <h1>Personal Agent</h1>
+      <span class="brand-mark cat-avatar" aria-hidden="true"></span>
+      <h1>小冻梨</h1><span class="brand-tagline">你的个人 AI 搭子</span>
     </div>
     <div class="debug-badges debug-only" id="debugBadges" aria-label="调试信息"></div>
     <span class="header-spacer"></span>
     <div class="header-actions">
       <button type="button" class="btn btn-quiet btn-sm header-btn" id="btnMemory" aria-label="我记得的">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12a1 1 0 011 1v16l-7-4-7 4V5a1 1 0 011-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 6-10 6L2 9z"/><path d="m2 13 10 6 10-6M2 17l10 6 10-6"/></svg>
         <span class="header-btn-label">记忆</span>
       </button>
       <button type="button" class="btn btn-ghost btn-sm header-btn" id="btnSchedules" aria-label="定时任务" aria-expanded="false" aria-controls="schedulesPanel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v5M17 3v5M3 10h18"/></svg>
         <span class="header-btn-label">定时</span>
       </button>
       <button type="button" class="btn btn-ghost btn-sm header-btn" id="btnProfile" aria-label="我的个人档案" aria-expanded="false" aria-controls="drawer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h4l3 4h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         <span class="header-btn-label">档案</span>
       </button>
     </div>
@@ -52,18 +53,18 @@
         </button>
         <div class="composer-inner">
           <div class="composer-shell" id="composerShell">
-            <label class="sr-only" for="composerInput">给小助发消息</label>
+            <label class="sr-only" for="composerInput">给小冻梨发消息</label>
             <textarea id="composerInput" rows="1" enterkeyhint="send"
-              placeholder="和我聊聊，或者说「帮我写一封邮件」"
+              placeholder="和小冻梨说说，今天有什么事…"
               aria-describedby="composerHint"></textarea>
             <button type="submit" class="btn btn-primary btn-send" id="btnSend" aria-label="发送">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 3-7 18-4-7-7-4z"/><path d="m10 14 11-11"/></svg>
             </button>
           </div>
           <div class="composer-error" id="composerError" role="alert" hidden></div>
           <div class="composer-hint" id="composerHint">
             <span id="composerHintKeys">Enter 发送 · Shift + Enter 换行</span>
-            <span class="hint-right">草稿须你确认后才会定稿</span>
+            <span class="hint-right">草稿由你确认后定稿</span>
           </div>
         </div>
       </form>
@@ -87,7 +88,7 @@
             <button type="button" class="btn btn-ghost btn-sm" id="btnClearLocal">清除本机对话记录</button>
           </div>
           <p class="dw-note">档案保存在服务端；对话记录只保存在这台设备的浏览器里。</p>
-          <p class="dw-version">Personal Agent v__APP_VERSION__</p>
+          <p class="dw-version">小冻梨 v__APP_VERSION__</p>
         </section>
       </div>
     </aside>
@@ -106,7 +107,7 @@
     <div id="schedulesBody" class="drawer-body"></div>
   </dialog>
   <noscript>
-    <p class="noscript">需要开启 JavaScript 才能和小助对话。</p>
+    <p class="noscript">需要开启 JavaScript 才能和小冻梨对话。</p>
   </noscript>
 </body>
 </html>

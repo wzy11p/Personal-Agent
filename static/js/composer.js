@@ -1,6 +1,6 @@
 import { $ } from "./core.js?v=__APP_VERSION__";
 
-const DEFAULT_PLACEHOLDER = "和我聊聊，或者说「帮我写一封邮件」";
+const DEFAULT_PLACEHOLDER = "和小冻梨说说，今天有什么事…";
 
 let busy = false;
 let submitHandler = null;

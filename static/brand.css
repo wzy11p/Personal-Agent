@@ -1,0 +1,89 @@
+/* Approved 小冻梨 composition at 1536 × 1024. Raster windows preserve the selected artwork. */
+:root {
+  --bg:#faf7f3; --surface:#fffdfb; --surface-alt:#fcf8f2; --surface-soft:#f3e9dd;
+  --surface-hover:rgba(96,56,24,.04); --surface-active:rgba(96,56,24,.08);
+  --border:#e9d9ca; --border-hover:#d8b894; --border-strong:#c7a580; --border-control:#b49476;
+  --text:#4b280f; --text-secondary:#87684f; --text-tertiary:#8a6e58; --text-placeholder:#947d6c;
+  --accent:#542b0f; --accent-hover:#3f210c; --accent-soft:#f7ebde; --accent-soft-2:#f1dfc9;
+  --accent-ring:#d8b894; --focus-ring:#9b652d; --link:#80501f; --link-hover:#542b0f;
+  --log-width:1234px; --bubble-width:940px; --avatar:64px;
+  --font-sans:"PingFang SC","Microsoft YaHei",Geist,system-ui,sans-serif;
+}
+body.chat-app { background:radial-gradient(ellipse at 50% 33%,#fffdfa 0%,#faf7f3 75%); }
+.chat-header {height:92px;min-height:92px;padding:8px 34px;border:0;border-radius:0 0 22px 22px;background:#fcfaf7;box-shadow:0 4px 15px #7854320c;}
+.app-header .brand {gap:23px;}
+.app-header h1 {font-size:40px;font-weight:750;letter-spacing:1px;}
+.app-header .brand-mark {width:70px;height:70px;border-radius:22px;background-color:transparent;}
+.brand-tagline {margin-left:2px;padding-left:24px;border-left:1px solid #d7b899;font-size:23px;letter-spacing:2px;color:#755035;white-space:nowrap;}
+.cat-avatar {background-image:url('/static/brand/xiaodongli-reference.png')!important;background-size:2075.68% 1462.86%!important;background-position:2.19% 1.05%!important;background-repeat:no-repeat!important;background-color:transparent!important;}
+.header-actions {gap:24px;}
+.header-btn {height:40px;padding:0 6px!important;font-size:23px;border:0!important;gap:14px!important;background:transparent!important;}
+.header-btn+.header-btn {border-left:1px solid #d7b899!important;border-radius:0;padding-left:30px!important;}
+.header-btn svg {width:29px;height:29px;stroke-width:1.8;}
+.log {padding:28px 20px 36px;gap:24px;}
+.hero {margin:0;padding:0;gap:0;width:100%;}
+.cat-hero {width:350px;height:330px;flex-shrink:0;margin-top:-30px;background:url('/static/brand/xiaodongli-reference.png') -590px -90px / 1536px 1024px no-repeat;mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 91%,transparent);mask-composite:intersect;}
+.hero h2 {margin:2px 0 0;font-size:40px;font-weight:650;letter-spacing:1px;line-height:1.4;}
+.hero-sub {margin:8px 0 0;max-width:none;font-size:24px;line-height:1.6;letter-spacing:1px;display:flex;align-items:center;gap:20px;}
+.hero-sub::before,.hero-sub::after {content:"";width:38px;height:1px;background:#b58c68;}
+.welcome-example {width:100%;margin-top:31px;text-align:left;position:relative;}
+.example-caption {position:absolute;right:82px;top:-23px;font-size:12px;color:var(--text-tertiary);}
+.example-user .bubble {border:0;min-width:374px;font-size:26px;padding:12px 28px;}
+.example-assistant .bubble {font-size:26px;letter-spacing:.3px;}
+.example-user {position:relative;left:10px;display:flex;justify-content:flex-end;gap:16px;align-items:center;}
+.example-person {width:60px;height:60px;border-radius:50%;background:#fff2df;color:#b58b61;display:grid;place-items:center;font-size:22px;}
+.bubble {font-size:23px;padding:16px 28px;line-height:1.6;border-radius:30px;}
+.bubble-user {background:#ffe8c2;color:var(--text);border-radius:36px;}
+.bubble-assistant {background:#fffefd;border:1px solid #eee5db;box-shadow:0 3px 8px #72411a08;border-radius:30px;}
+.msg-avatar {width:64px;height:64px;border-radius:23px;}
+.example-assistant {display:flex;align-items:center;gap:16px;margin-top:27px;}
+.hero-actions {display:flex;gap:16px;width:auto;max-width:none;margin:24px 0 0 80px;}
+.hero-chip {min-height:56px;padding:10px 31px;border-radius:999px;border:1px solid #dbb384;background:transparent;font-size:22px;gap:10px;white-space:nowrap;}
+.hero-chip svg {width:25px;height:25px;color:#aa6e26;}
+.composer {padding:12px 20px 40px;background:transparent;}
+.composer-inner {max-width:1194px;}
+.composer-shell {min-height:92px;padding:15px 30px 15px 32px;border:1px solid #dfbd97;border-radius:27px;align-items:center;background:#fffefd;box-shadow:0 6px 18px #a7773c08;}
+.composer-shell:focus-within {border-color:#c99e6d;box-shadow:0 4px 18px #a7773c0a;}
+#composerInput {font-size:23px;min-height:48px;line-height:1.5;padding:6px 4px;}
+.btn-send {width:58px;height:58px;min-height:58px;border-radius:50%;}
+.btn-send svg {width:27px;height:27px;}
+.composer-hint {font-size:16px;margin:8px 38px 0;letter-spacing:.4px;}
+.drawer,.schedules-panel {background:#fffdf9;}
+.drawer {--avatar:32px;}
+.chat-app .toast-wrap {top:100px;}
+@media (max-height:850px) and (min-width:801px) {
+  .cat-hero {zoom:.72;}.hero h2 {font-size:32px;}.hero-sub {font-size:19px;}
+  .welcome-example {margin-top:30px;}.bubble {font-size:18px;padding:12px 22px;}
+  .hero-chip {font-size:17px;min-height:44px;}.hero-actions {margin-top:16px;}
+  .example-assistant {margin-top:18px;}.composer {padding-bottom:18px;}
+  .composer-shell {min-height:74px;}#composerInput {font-size:19px;}
+}
+@media (max-width:1100px) {
+  .brand-tagline {display:none;}.header-actions {gap:12px;}.header-btn {font-size:18px;}
+  .header-btn+.header-btn {padding-left:18px!important;}.hero-sub {font-size:19px;}
+  .hero h2 {font-size:34px;}.bubble {font-size:19px;}.hero-chip {font-size:17px;padding:10px 18px;}
+}
+@media (max-width:640px) {
+  .chat-header {height:70px;min-height:70px;padding:8px 14px;border-radius:0 0 16px 16px;}
+  .app-header .brand {gap:8px;}.app-header .brand-mark {width:46px;height:46px;border-radius:15px;}
+  .app-header h1 {font-size:24px;letter-spacing:0;}.header-actions {gap:6px;}
+  .header-btn {width:38px;padding:4px!important;}.header-btn+.header-btn {border:0!important;padding-left:4px!important;}
+  .header-btn svg {width:23px;height:23px;}.header-btn-label {display:none;}
+  .log {padding:18px 16px 24px;}.cat-hero {zoom:.61;}
+  .hero h2 {font-size:23px;letter-spacing:0;margin-top:8px;}.hero-sub {font-size:13px;letter-spacing:0;gap:8px;}
+  .hero-sub::before,.hero-sub::after {width:12px;}.welcome-example {margin-top:32px;}
+  .example-caption {right:0;top:-21px;font-size:10px;}.example-person {display:none;}
+  .bubble {font-size:14px;padding:12px 16px;border-radius:20px;max-width:90%;}
+  .msg-avatar {width:38px;height:38px;border-radius:13px;}.example-assistant {gap:10px;margin-top:18px;}
+  .example-assistant .bubble {flex:1;}.hero-actions {margin:20px 0 0;gap:8px;flex-wrap:wrap;justify-content:center;}
+  .hero-chip {font-size:12px;padding:8px 11px;min-height:38px;gap:6px;}.hero-chip svg {width:16px;height:16px;}
+  .composer {padding:8px 12px max(15px,env(safe-area-inset-bottom));}
+  .composer-shell {min-height:66px;padding:10px 12px;border-radius:20px;}
+  #composerInput {font-size:16px;min-height:40px;}.btn-send {width:42px;height:42px;min-height:42px;}.btn-send svg {width:21px;height:21px;}
+  .composer-hint {margin:6px 8px 0;font-size:11px;justify-content:flex-end;}
+}
+
+@media(max-width:640px){.example-user .bubble{min-width:0;font-size:14px}.msg-avatar{display:inline-flex}.hero-actions{margin-left:0}.cat-hero{margin-top:0}}
+
+@media(max-width:1100px){.example-assistant .bubble{font-size:19px;letter-spacing:0}}
+@media(max-width:640px){.example-user{left:0}.example-user .bubble{padding:12px 16px}.example-assistant .bubble{font-size:14px}.welcome-example{margin-top:32px}}
